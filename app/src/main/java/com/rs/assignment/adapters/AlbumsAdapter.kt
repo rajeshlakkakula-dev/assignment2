@@ -44,7 +44,7 @@ class AlbumsAdapter(
 
         init {
             recyclerView.layoutManager =
-                GridLayoutManager(recyclerView.context, 2)
+                GridLayoutManager(recyclerView.context, 2,GridLayoutManager.HORIZONTAL,false)
         }
 
     }
