@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             APICALL.getRetrofitInstance().create(GetDataService::class.java)
 
 
-        service.albumsList?.enqueue(object : Callback<AlbumJsonResponse> {
+        service.albumsList.enqueue(object : Callback<AlbumJsonResponse> {
             override fun onFailure(call: Call<AlbumJsonResponse>, t: Throwable) {
                 Toast.makeText(
                     this@MainActivity,
@@ -97,15 +97,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun getSortedMap(sortedDataList: List<Album>): HashMap<String, ArrayList<String>> {
         var pos = 0
+        var keyPos = 0
         var songList = ArrayList<String>()
         do {
             if (sortedMap[sortedDataList[pos].artist] == null) {
+                keyPos = pos
                 songList.clear()
-                songList.add(sortedDataList[pos].name)
-                sortedMap.put(sortedDataList[pos].artist, songList)
+                songList.add(sortedDataList[keyPos].name)
+                sortedMap.put(sortedDataList[keyPos].artist, songList)
             } else {
                 songList.add(sortedDataList[pos].name)
-                sortedMap.put(sortedDataList[pos].artist, songList)
+                sortedMap.put(sortedDataList[keyPos].artist, songList)
             }
             pos++
         } while (sortedDataList.size > pos)

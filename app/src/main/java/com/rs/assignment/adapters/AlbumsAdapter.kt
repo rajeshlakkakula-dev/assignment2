@@ -45,7 +45,6 @@ class AlbumsAdapter(
         init {
             recyclerView.layoutManager =
                 GridLayoutManager(recyclerView.context, 2)
-            //  recyclerView.adapter = ListOfAlbumsAdapter(lists)
         }
 
     }

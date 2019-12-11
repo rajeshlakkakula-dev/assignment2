@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.rs.assignment.R
-
 import kotlinx.android.synthetic.main.albums_list.view.*
-import kotlin.collections.ArrayList
 
 class ListOfAlbumsAdapter(private val list: ArrayList<String>?) :
     RecyclerView.Adapter<ListOfAlbumsAdapter.ListViewHolder>() {
