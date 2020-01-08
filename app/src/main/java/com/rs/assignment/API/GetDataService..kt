@@ -9,4 +9,5 @@ interface GetDataService {
 
     @get:GET("/bins/rov51")
     val albumsList: Call<AlbumJsonResponse>
+
 }
